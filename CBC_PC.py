@@ -731,6 +731,7 @@ archivo.close()"""
 #a. Hacer una función que reciba este diccionario, y guarde las notas en un archivo csv, llamados notas.csv
 #b. Tiempo después de guardar las notas, la profesora quiso saber la cantidad de alumnos que aprobaron. Hacer una función que lea el 
 #archivo creado en el ejercicio anterior, y devolver lacantidad de alumnos aprobados (su nota es mayor a 4).
+"""
 alumnos = [
     {
         "Nombre" : "Juan",
@@ -758,14 +759,14 @@ alumnos = [
     }
 ]
 
-def leer_dicc_alumno(dicc : dict, archivo : str) -> None:
+def leer_dicc_alumno(dicc : dict) -> str:
     mensaje = f"{dicc['Nombre']},{dicc['Apellido']},{dicc['DNI']},{dicc['Nota']}"
     return mensaje
 
 csv_packet = ""
 
 for alumno in alumnos:
-    csv_packet = csv_packet + leer_dicc_alumno(alumno, "notas.csv") + "\n"
+    csv_packet = csv_packet + leer_dicc_alumno(alumno) + "\n"
 
 archivo = open("notas.csv", "w")
 archivo.write(csv_packet)
@@ -788,3 +789,49 @@ for nota in lista_notas:
     if int(nota) < 4:
         contador_desaprobados += 1
 print(f"Cantidad de alumnos desaprobados: {contador_desaprobados}")
+"""
+
+#SEMANA 6 /// EJERCICIO 7: En un cine tienen dos archivos .txt, uno con salas y otro con nombres de películas. Se sabe que en la
+#sala de una fila del archivo se va a transmitir la película de la misma fila del archivo de películas. Se pide
+#leer los dos archivos, y crear un nuevo archivo csv que tenga el nuevo formato sala;pelicula.
+
+"""archivo_sala = open("python\\6_6(salas).txt", "r")
+salas = archivo_sala.readlines()
+archivo_sala.close()
+
+archivo_pelicula = open("python\\6_6(peliculas).txt", "r")
+peliculas = archivo_pelicula.readlines()
+archivo_pelicula.close()
+
+mensaje = ""
+
+for i in range(len(salas)):
+    mensaje = mensaje + f"{salas[i].strip("\n")},{peliculas[i].strip("\n")}" + "\n"
+
+archivo_completo = open("python\\6_6(completo).csv", "w")
+archivo_completo.write(mensaje)
+archivo_completo.close()"""
+
+#SEMANA 6 /// EJERCICIO 8: Hacer un programa que lea el archivo .csv y lo transforme en un archivo .txt. 
+"""
+def gustar_color(lista : list):
+    mensaje = f"A {linea[0]} {linea[2]} le gusta el {linea[1]}"
+    return mensaje
+
+csv = open("6_8.csv", "r")
+texto = csv.readlines()
+csv.close()
+
+escribir_txt = ""
+
+for linea in texto:
+    linea = linea.strip("\n")
+    linea = linea.split(";")
+    escribir_txt = escribir_txt + gustar_color(linea) + "\n"
+
+txt = open("python\\6_8.txt", "w")
+txt.write(escribir_txt)
+txt.close()
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 1: 
