@@ -838,3 +838,173 @@ txt.close()
 #valor ingresado no sea un número entero, mostrarle un mensaje apropiado.
 #a. Realizarlo utilizando isnumeric(). ¿Qué limitaciones encuentra? (No considera negativos)
 #b. Realizarlo utilizando try/ except.
+"""
+numero = None
+while type(numero) is not int:
+    try:
+        numero = input("Ingrese un mumero entero: ")
+        numero = int(numero)
+        print("El numero es ", numero)
+    except ValueError:
+        print("El valor ingresado no es valido")
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 2: Crear una función, utilizando el punto anterior, que le pida al usuario un número entero. Utilizarla para
+#calcular el producto entre dos números enteros ingresados.
+"""
+def calcular_producto(entero, entero_2):
+    solucion = entero * entero_2
+    print(f"El producto de ambos numeros enteros es {solucion}")
+
+numero = None
+while type(numero) is not int:
+    try:
+        numero = input("Ingrese un mumero entero: ")
+        numero = int(numero)
+    except ValueError:
+        print("El valor ingresado no es valido")
+
+numero_2 = None
+while type(numero_2) is not int:
+    try:
+        numero_2 = input("Ingrese un mumero entero: ")
+        numero_2 = int(numero_2)
+    except ValueError:
+        print("El valor ingresado no es valido")
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 3: Se quiere hacer un programa que le solicite al usuario un número divisor y un dividendo, y calcule el
+#cociente entre ellos.
+"""
+def calcular_cociente(divisor, dividendo):
+    solucion = dividendo / divisor
+    print(f"El cociente entre ambos numeros es {solucion}")
+
+numero = None
+while type(numero) is not float:
+    try:
+        numero = input("Ingrese un mumero entero: ")
+        numero = float(numero)
+    except ValueError:
+        print("El valor ingresado no es valido")
+
+numero_2 = None
+while type(numero_2) is not float or numero_2 == 0:
+    try:
+        numero_2 = input("Ingrese un mumero entero: ")
+        numero_2 = float(numero_2)
+    except ValueError:
+        print("El valor ingresado no es valido")
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 4: Crear un programa para abrir un archivo llamado “file.txt” en modo lectura y en caso de que este
+#archivo no exista, mostrar el mensaje “No se pudo encontrar el archivo file.txt”.
+"""
+try:
+    archivo = open("file.txt", "r")
+    archivo.close()
+except FileNotFoundError:
+    print("No se pudo encontrar el archivo file.txt")
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 5: Crear una función cuyos parámetros sean una lista y un índice de posición para mostrar el valor de la lista en esa ubicación.
+#a. ¿Qué ocurre si ingreso un índice que se encuentra fuera del rango? (Sale error) IndexError
+#b. Si el valor del índice ingresado se encuentra dentro del rango, mostrar el valor. En caso contrario, mostrar un mensaje apropiado para dicho error.
+"""
+def mostrar_posicion (lista : list, indice : int):
+    return lista[indice]
+
+lista_1 = ["Camila", "Tobias", "Ivan"]
+indice_1 = int(input("Ingrese la posicion seleccionada: "))
+try:
+    print(mostrar_posicion(lista_1,indice_1))
+except IndexError:
+    print("Fuera de rango")
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 6: Para jugar al chinchón con un único mazo de cartas españolas, el número de jugadores puede ser: dos,
+#tres o cuatro. Crear una función que pida al usuario informar el número de jugadores.
+"""
+def pedir_numero():
+    num_jugadores = int(input("Ingrese el numero de jugadores: "))
+    return num_jugadores
+
+try:
+    num_pj = pedir_numero()
+    if num_pj != 2 and num_pj != 3 and num_pj != 4:
+        if num_pj > 4:
+            print("Se puede jugar con un maximo de cuatro jugadores")
+        else:
+            print("Debe haber al menos dos jugadores")
+    else:
+        print("Inicio del juego")
+except ValueError:
+    print("El valor ingresado no es valido")
+"""
+
+#SEMANA 6 /// Errores: Ejercicio 7: Para jugar al truco con un único mazo de cartas españolas, el número de jugadores puede ser: dos,
+#cuatro o seis. Crear una función que pida al usuario informar el número de jugadores.
+"""
+def pedir_numero():
+    num_jugadores = int(input("Ingrese el numero de jugadores: "))
+    return num_jugadores
+
+try:
+    num_pj = pedir_numero()
+    if num_pj != 2 and num_pj != 6 and num_pj != 4:
+        if num_pj > 6:
+            print("Se puede jugar con un maximo de cuatro jugadores")
+        elif num_pj < 2:
+            print("Debe haber al menos dos jugadores")
+        else:
+            print("Debe haber un numero par de jugadores")
+    else:
+        print("Inicio del juego")
+except ValueError:
+    print("El valor ingresado no es valido")
+"""
+
+#SEMANA 6 /// Errores: EJERCICIO 8: Se tienen dos diccionarios, uno con un código y el producto, y otro con el código y el precio de cada producto.
+#Y le pida al usuario una opción y una cantidad. Luego, debe imprimir el total a pagar. Se debe considerar que el usuario podría ingresar una opción que no está en el diccionario, o ingresar
+#una opción que no sea un número. El usuario debe en esos casos imprimir un mensaje de error que sea descriptivo y volver a pedirle al usuario que ingrese una opción
+"""
+opciones = {
+    1: "hamburguesas",
+    2: "milanesas",
+    3: "gaseosa",
+    4: "alfajor",
+    5: "papas fritas",
+    6: "agua"
+}
+
+valores = {
+    1: 1000,
+    2: 1500,
+    3: 500,
+    4: 300,
+    5: 600,
+    6: 350
+}
+
+mensaje = ""
+
+for i in range(1,7):
+    mensaje = mensaje + f"{i}: {opciones[i]} -> {valores[i]}" + "\n"
+
+print(mensaje)
+
+total = 0
+while True:
+    try:
+        compra = int(input("Que desea comprar? (0 para cerrar la compra): "))
+        if compra == 0:
+            break
+        total += valores[compra]
+    except KeyError:
+        print("No existe esa opcion")
+    except ValueError:
+        print("Debe ingresar un numero")
+print(f"Total a pagar: {total}")
+"""
+
+#SEMANA 7: Ejercicio 1: 
