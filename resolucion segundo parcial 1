@@ -1,0 +1,29 @@
+###1_ ¿Qué contiene b ?
+#[2, 2, 2, 2, 4, 4, 4, 4]
+#[] 
+#[1, 2, 3, 4, 5, 6, 7, 8] 
+#[2, 2, 3, 4, 2, 2, 3, 4] X
+
+def organiza(name):
+    org=2
+    if name>=100 and name<1000:
+        org=3
+    elif name>=1000:
+        org=4
+    return org
+
+a=[1,15,150,1500,2,20,200,2000]
+b=list(map(organiza,a))
+
+###2_def ingreso(usr):
+def ingreso(usr):
+    dccMail=input('Mail: ')
+    clave=input('Password: ')
+    return usr.count([clave,dccMail])==0
+
+# users contiene [password,dirección mail]
+users=[['X25fc230','info@usina.com.ar'],
+['Irma1211','iro@hotmail.com'],
+['joacoS01','ergo@gmail.com']]
+while ingreso(users):
+    print('Datos de Acceso Erróneos')

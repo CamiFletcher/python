@@ -1021,4 +1021,4 @@ peliculas = {'nombre': ['Titanic', 'Kil Bill', 'Matrix', 'El padrino', 'Avatar',
                         'ciencia ficción', 'drama', 'drama'],
             'puntaje': [8.6, None, 6.9, 7.5, 9.1, 6.0, None, None, 9.4, 8.0]}
 
-#SEMANA 8:
+#SEMANA 8: SE HACEN EN GOOGLE COLLAB (Esta en semana 8)
